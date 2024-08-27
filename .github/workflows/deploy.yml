@@ -75,7 +75,7 @@ jobs:
   publish-to-crates:
     needs: [test, build-and-deploy]
     runs-on: ubuntu-latest
-    if: github.event_name == 'release' && github.event.action == 'created'
+    if: github.event_name == 'release' && github.event.release.tag_name != ''
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
