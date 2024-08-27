@@ -81,7 +81,6 @@ jobs:
   publish-to-crates:
     needs: [test, build-and-deploy]
     runs-on: ubuntu-latest
-    if: (github.event_name == 'release' && github.event.release.tag_name != '') || (github.event_name == 'workflow_dispatch' && github.event.inputs.publish_to_crates == 'true')
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
